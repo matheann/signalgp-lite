@@ -6,6 +6,8 @@
 
 #include "sgpl/algorithm/drag_to.hpp"
 
+using namespace sgpl;
+
 TEST_CASE("Test forward drag") {
 
   emp::vector<int> buff(8);
