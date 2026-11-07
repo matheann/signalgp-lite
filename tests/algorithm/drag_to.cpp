@@ -6,7 +6,7 @@
 
 #include "sgpl/algorithm/drag_to.hpp"
 
-using namespace sgpl;
+#include "sgpl/utility/ThreadLocalRandom.hpp"
 
 TEST_CASE("Test forward drag") {
 
