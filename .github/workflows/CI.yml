@@ -188,6 +188,7 @@ jobs:
 
       - name: Microbenchmarks
         run: |
+          npm install -g jsonlist
           cd microbenchmarks
           make
 
