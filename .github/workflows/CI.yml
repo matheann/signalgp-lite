@@ -124,14 +124,16 @@ jobs:
     env:
       CXX: clang++
     steps:
+      - name: Set up clang
+        uses: egor-tensin/setup-clang@v1
+        with:
+          version: 18
+      - run: clang++ --version
+      - run: sudo apt-get update -qq
+      - run: sudo apt-get install cmake build-essential python3-virtualenv python3-pip nodejs tar gzip clang llvm-dev libclang-dev rename libdwarf-dev
       - uses: actions/checkout@v6
         with:
           submodules: 'recursive'
-      - name: Installing APT packages
-        run: |
-          sudo apt-get update -qq
-          sudo apt-get install -y --allow-downgrades --no-install-recommends rename libdwarf-dev
-
       - name: Installing Python packages
         run: |
           python3 -m pip install --user --timeout 60 --retries 100 --upgrade pip
