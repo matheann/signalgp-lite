@@ -1,6 +1,6 @@
 #!/bin/bash
 
-TARGETS=$(find . -type f ! -path "./third-party/*" ! -path "./.git/*" ! -path "*/assets/*" ! -path "./.env/*")
+TARGETS=$(find . -type f ! -path "./third-party/*" ! -path "./.git/*" ! -path "*/assets/*" ! -path "./.env/*" ! -path "./.cache/*" ! -path "./.local/*" ! -path "./node_modules/*")
 
 for filename in $TARGETS
 do
