@@ -143,6 +143,9 @@ jobs:
           chmod +x llvm.sh
           sudo ./llvm.sh 18
           echo "/usr/lib/llvm-18/bin" >> "$GITHUB_PATH"
+      - name: Installing Force Cover
+        run: |
+          ./third-party/install_force_cover.sh
       - run: make coverage CXX=clang++
       - uses: codecov/codecov-action@v6
         with:
