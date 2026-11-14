@@ -22,7 +22,7 @@ df = df.groupby([
     'Library',
     'Implementation',
     'num agents',
-]).mean().reset_index()
+]).mean(numeric_only=true).reset_index()
 
 vanilla = df[df['Implementation'] == 'vanilla']
 lite = df[df['Implementation'] == 'lite']
