@@ -277,6 +277,7 @@ jobs:
         with:
           submodules: 'recursive'
       - run: |
+          pip3 install sphinx
           ./third-party/install_emsdk.sh
           source third-party/emsdk/emsdk_env.sh
           make web
@@ -297,6 +298,9 @@ jobs:
       - microbenchmarks
       - source-clang
       - source-gcc
+    permissions:
+      contents: read
+      packages: write
     steps:
       - uses: actions/checkout@v6
         with:
