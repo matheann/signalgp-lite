@@ -277,6 +277,7 @@ jobs:
         with:
           submodules: 'recursive'
       - run: |
+          ./third-party/install_emsdk.sh
           source third-party/emsdk/emsdk_env.sh
           make web
           make badges
@@ -297,18 +298,12 @@ jobs:
       - source-clang
       - source-gcc
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with:
           submodules: 'recursive'
           fetch-depth: 0 # fetch all history for all branches and tags
-
-      - name: Installing User Bin Permissions
-        run: |
-            chgrp --recursive user /opt/signalgp-lite
-            chmod --recursive g+rwx /opt/signalgp-lite
-
       - name: Push to DockerHub
-        uses: docker/build-push-action@v1
+        uses: docker/build-push-action@v6
         with:
           push: true
           username: ${{ github.actor }}
