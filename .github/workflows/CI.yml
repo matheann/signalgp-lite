@@ -32,12 +32,12 @@ jobs:
         run: |
           sudo apt-get update -qq
           sudo apt-get install -y --allow-downgrades --no-install-recommends rename libdwarf-dev doxygen
-          doxygen Doxyfile
 
       - name: Documents
         run: |
           ./ci/test_tidy.sh
           python3 ci/test_readme_snippets.py
+          doxygen Doxyfile
           make docs
 
   unit-clang-debug:
