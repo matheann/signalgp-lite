@@ -37,8 +37,7 @@ jobs:
         run: |
           ./ci/test_tidy.sh
           python3 ci/test_readme_snippets.py
-          mkdir -p doc/doxygen
-          doxygen Doxyfile
+          doxygen
           make docs
 
   unit-clang-debug:
